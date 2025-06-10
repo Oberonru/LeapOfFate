@@ -5,7 +5,6 @@ public class Player : MonoBehaviour
     [SerializeField] private float speed = 5f;
     [SerializeField] private float gravity = -9.81f;
     [SerializeField] private float jumpHeight = 2f;
-
     private CharacterController controller;
     private Vector3 velocity;
     private bool isGrounded;
@@ -26,8 +25,6 @@ public class Player : MonoBehaviour
         float moveHor = Input.GetAxis("Horizontal");
         float moveVer = Input.GetAxis("Vertical");
         Vector3 move = new Vector3(moveHor, 0, moveVer);
-
-        // Поворот в сторону движения, если есть движение
         if (move.sqrMagnitude > 0.01f)
         {
             Quaternion toRotation = Quaternion.LookRotation(move, Vector3.up);
